@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+  </head>
+
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      /* body{
+    color: white;
+    font-size: 1rem;
+} */
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100vh;
+        background-color: skyblue;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+        color: #ff0077;
+        text-align: center;
+      }
+
+      .form-box {
+        width: 650px;
+        background-color: black;
+        padding: 20px 40px;
+        border-radius: 10px;
+      }
+
+      .row {
+        width: 100%;
+        display: flex;
+        margin-bottom: 15px;
+      }
+
+      .column {
+        width: 100%;
+        color: wheat;
+      }
+
+      .column .i1 {
+        width: 90%;
+        height: 30px;
+        padding-left: 5px;
+        outline-color: #ff0077;
+      }
+
+      .column .i2 {
+        accent-color: #ff0077;
+      }
+
+      .column p {
+        margin-bottom: 5px;
+        font-weight: 550;
+        color: #ffffff;
+      }
+
+      .btn {
+        border: none;
+        width: 80px;
+        outline: none;
+        background-color: #ff0077;
+        color: #fff;
+        padding: 10px 15px;
+        border-radius: 10px;
+      }
+      .btn:hover {
+        background-color: #cc0663;
+        color: rgb(255, 255, 255);
+        
+        width: 77px;
+      }    
+
+
+      /* #btn2 {
+        background-color: red;
+      } */
+
+      span {
+        color: red;
+        font-size: 14px;
+      }
+      .input{
+        /* align-items: center;
+        display: flex; */
+        margin-left: 85%;
+    /* margin-right: 10%; */
+
+      }
+
+      .fa-circle-check {
+        color: green;
+      }
+
+      h1 {
+        color: #fff;
+      }
+      p {
+        color: rgb(255, 0, 0);
+        font-size: 1.2rem;
+      }
+    </style>
+    <div class="container">
+      <div class="form-box">
+        <div class="content">
+          <h2 id="title">Student Details Form</h2>
+
+          <form id="myForm" action="" onsubmit="return formvali()">
+            <div class="row">
+              <div class="column">
+                <p>Name</p>
+                <input
+                  class="i1"
+                  type="text"
+                  name="name"
+                  placeholder="Enter Name"
+                  id="name"
+                />
+                <span id="nameError"></span>
+              </div>
+              <div class="column">
+                <p>Last name</p>
+                <input
+                  class="i1"
+                  type="text"
+                  maxlength="8"
+                  name="lastName"
+                  placeholder="Last name"
+                  id="lastName"
+                />
+                <span id="lastNameError"></span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="column">
+                <p>Email</p>
+                <input
+                  class="i1"
+                  type="text"
+                  name="email"
+                  placeholder="Email"
+                  id="email"
+                />
+                <span id="emailError"></span>
+              </div>
+              <div class="column">
+                <p>Password</p>
+                <input
+                  class="i1"
+                  type="password"
+                  maxlength="8"
+                  name="password"
+                  placeholder="Password"
+                  id="password"
+                />
+                <span id="passwordError"></span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="column">
+                <p>Mobile Number</p>
+                <input
+                  class="i1"
+                  type="tel"
+                  maxlength="10"
+                  name="mobileNumber"
+                  placeholder="Mobile Number"
+                  id="mobileNumber"
+                />
+                <span id="mobileNumberError"></span>
+              </div>
+              <div class="column">
+                <p>Confirm Password</p>
+                <input
+                  class="i1"
+                  type="password"
+                  maxlength="8"
+                  name="confirmPassword"
+                  placeholder="Confirm Password"
+                  id="confirmPassword"
+                />
+                <span id="confirmPasswordError"></span>
+              </div>
+            </div>
+       
+            <div class="row">
+              <div class="column">
+                <p>Gender</p>
+                <input type="radio" name="gender" value="Male" /> Male <br />
+                <input type="radio" name="gender" value="Female" /> Female
+                <br />
+                <span id="genderError"></span>
+              </div>
+              
+              <div class="column">
+                <p>Course</p>
+                <input type="checkbox" name="course" value="IT" /> BCA <br />
+                <input type="checkbox" name="course" value="HRM" /> BBA <br />
+                <input type="checkbox" name="course" value="English" /> B.COM <br />
+                <input type="checkbox" name="course" value="MATHS" /> C.A <br />
+                <span id="courseError"></span>
+              </div>
+              
+              <div class="column">
+                <p>University Location</p>
+                <select name="location" id="universityLocation" placeholder="Enter Name">
+                    
+                    <!-- <option value=""></option> -->
+                    <option value="Gujarat University">Gujarat University</option>
+                    <option value="Nirma University">Nirma University</option>
+                    <option value="Ahmedabad University">Ahmedabad University</option>
+                    <option value="CEPT University">CEPT University</option>
+                    <option value="Indus University">Indus University</option>
+                  </select>
+                  <span id="locationError"></span>
+                  
+              </div>
+            </div>
+           
+            <div class="input">
+            <input type="submit" class="btn" id="btn1" value="Submit" />
+        </div>
+          
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function validateEmail(email) {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+      }
+
+      function formvali() {
+        name = document.getElementById("name").value;
+        email = document.getElementById("email").value;
+        lastName = document.getElementById("lastName").value;
+        password = document.getElementById("password").value;
+        confirmPassword = document.getElementById("confirmPassword").value;
+        mobileNumber = document.getElementById("mobileNumber").value;
+        gender = document.querySelector('input[name="gender"]:checked');
+        courses = document.querySelectorAll('input[name="course"]:checked');
+        universityLocation = document.getElementById("universityLocation").value;
+
+
+        // Clear previous error messages
+        document.getElementById("nameError").innerText = "";
+        document.getElementById("emailError").innerText = "";
+        document.getElementById("lastNameError").innerText = "";
+        document.getElementById("passwordError").innerText = "";
+        document.getElementById("mobileNumberError").innerText = "";
+        document.getElementById("genderError").innerText = "";
+        document.getElementById("courseError").innerText = "";
+        document.getElementById("locationError").innerText = "";
+
+
+        // Validation
+        if (name === "") {
+          document.getElementById("nameError").innerText =
+            "Name is a required field.";
+          return false;
+        }
+        if (email === "") {
+          document.getElementById("emailError").innerText =
+            "Email is a required field.";
+          return false;
+        } else if (!validateEmail(email)) {
+          document.getElementById("emailError").innerText =
+            "Please enter a valid email address.";
+          return false;
+        }
+        if (lastName === "") {
+          document.getElementById("lastNameError").innerText =
+            "Last name is a required field.";
+          return false;
+        }
+        if (password === "") {
+          document.getElementById("passwordError").innerText =
+            "Password is a required field.";
+          return false;
+        }
+        if (confirmPassword !== password) {
+          document.getElementById("confirmPasswordError").innerText =
+            "Passwords do not match.";
+          return false;
+        }
+        if (mobileNumber === "") {
+          document.getElementById("mobileNumberError").innerText =
+            "Mobile number is a required field.";
+          return false;
+        } else if (!/^\d{10}$/.test(mobileNumber)) {
+          document.getElementById("mobileNumberError").innerText =
+            "Mobile number must be 10 digits.";
+          return false;
+        }
+        if (!gender) {
+          document.getElementById("genderError").innerText =
+            "Please select a gender.";
+          return false;
+        }
+        if (courses.length === 0) {
+          document.getElementById("courseError").innerText =
+            "Please select at least one course.";
+          return false;
+        }
+
+        // If validation passes
+        alert("Form submitted successfully!");
+        return true;
+      }
+    </script>
+  </body>
+</html>
